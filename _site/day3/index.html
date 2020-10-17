@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3 - Getting responsive</title>
+    <link rel="stylesheet" href="https://use.typekit.net/phz3fce.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+
+
+</head>
+<body>
+  <header>
+    <img class="cc-logo" src="/assets/images/cc-logo.png">
+  </header>
+
+
+    <h1>Day 3 - Getting responsive</h1>
+    <section class="post__date">
+      <div class="post__date--created">
+        Posted: <span>Sat Oct 17 2020</span>
+      </div>
+
+      
+    </section>
+
+
+    <p>So as I've just started getting some colours and some layouts down into my CSS file, now's a good time to look at going responsive.</p>
+<h2>A bit of history</h2>
+<p>Back when I was more  involved in front-end code, <em>Mobile First</em> was one of the ways to tackle development; the other being Responsive/Adaptive Design.</p>
+<p>The idea behind Mobile First being that you develop and code for the I guess, the worst case scenario and then add in code, functionality and flair as the device gets better. As the screen gets bigger, you can improve the layout or increase the type. As the connection gets quicker, you can load more images or higher resolution images and as the device gets more powerful, you can load in more function with JS.  Solid idea I think.</p>
+<p>Responsive Design was almost the other way round where you'd design and build your site to suit the desired requirements. Responsive design allows the design to respond to the scenario and has the functionality coded in to cover these scenarios. Responsive design keeps the design fluid so it flows to the size of the screen and and moves elements around to suit the screen size; and as the screen size reduces, you can remove superfluous design detail.</p>
+<p>Adaptive works similar to responsive where you design and build to suit the desired requirements but you set 'breakpoints', so creating several fixed layouts to suit mobile, tablet, desktops and above and as the page loads, it determines the specification of the device loading it and serves up the corresponding layout.</p>
+<p>But that was then. I do want to explore more modern ways of being responsive but for now, I'll add in some media queries so that I can make the most of available screen real estate where needed.</p>
+<h2>Media Queries</h2>
+<p>The Mozilla Developer Network (MDN) has a great resource and write up on <a href="%22https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries%22">Media Queries</a> and I thoroughly recommend you having a read for a deeper, more in depth look at what <code>Media Queries</code> can do.</p>
+<p>For the moment, I'll be using media queries to define certain styles that should be applied if the device matches the query.</p>
+<p>First job (and one I always forget) is to add the following tag to the head of your page or in our case, <code>_main.njk</code></p>
+<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></p>
+<p>This tells the browser how to control the dimensions and scaling of the page.</p>
+<p>And then we need to add media queries to our CSS file to change &amp; resize elements based on our screen size. Simple media queries looks like this:</p>
+<p><code>@media (width &lt;= 30em) { [your css goes here] }</code></p>
+<p>This lives within your <code>CSS</code> file. The <code>@media</code> portion tells your browser that we're looking at a query here. The proceeding bracketed statement, in this case <code>(width &lt;= 30em)</code> provides the browser with a logical question. Is the width of the screen <em>less than or equal to</em> 30rem. If the result of this question is <strong>true</strong>, then the CSS within the braces, <code>{ ... }</code> gets applied to your page.</p>
+<p>Now it's worth remembering about the cascade when it comes to CSS. So media queries <em>should</em> live at the bottom of your CSS file. If you set the width of you <code>body</code> tag to suit a mobile screen and then set it again later in the <code>css</code> file to suit a desktop sized screen, then the latest declaration will be what gets applied. So depending on whether your coming from the <strong>mobile first</strong> or <strong>responsive</strong> approach dictates how you order your CSS.</p>
+<p>I'm going for the responsive approach so my media queries will be located beneath the CSS.</p>
+<p>My <code>body</code> selector at the moment looks like this</p>
+<p><code>body {   ...   max-width: 30rem;   ... }</code></p>
+<p>So now I want to add the Media Query below it to adjust the <code>max-width</code> of my selector when it gets less than <code>30em</code></p>
+<p><code>body {   ...   max-width: 30rem;   ... } @media (width &lt;= 30em) {   body {     max-width: 90%;     }   }</code></p>
+<p>This now allows our content to remain the same but the containers dimensions of the content blocks change and adapt according to the screen size.</p>
+<p>I've gone for a 90% width here to give the content a bit of breathing room from the edge of the screen.</p>
+
+
+      <footer>CroydonCreativ.es 2011-2020</footer>
+
+  </body>
+
+</html>

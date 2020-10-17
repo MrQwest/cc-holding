@@ -90,6 +90,16 @@ The @layout@ tag tells 11ty which layout to use, in this instance, it’s 'main.
 
 After this 'front matter', we continue to write our content in Markdown.
 
+## Step 6 Build
+
+Finally, let's get 11ty running. In the command line, we'll type
+
+`$ npx @11ty/eleventy --serve`
+
+This fires up eleventy and a local server, allowing you to hit `localhost:8080` in your browser to see the site. If you've followed along so far, when you visit localhost:8080, you should see the index.md file you created in step 5.
+
+You may also notice that now, whenever you create, modify or save a file, the 11ty server will rebuild your site, storing the static files within a folder called `_site`. You can upload all of this to your live site and it'll work like a normal `html` website. 
+
 ## Fin
 This is the story so far. Next step is to get some includes working so that we can build out a header & footer. And then it’s adding some design flair in.
 

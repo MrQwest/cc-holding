@@ -2,12 +2,26 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     {% include "_includes/_head.html" %}
 
+    <h1>{{ title }}</h1>
+    <section class="post__date">
+      <div class="post__date--created">
+        Posted: <span>{{ page.date.toDateString() }}</span>
+      </div>
+
+      {% if update %}
+        <div class="post__date--modified">
+          Updated: <span>{{ update }}</span>
+        </div>
+      {% endif %}
+    </section>
+
 
     {{ content | safe }}
-    
+
     {% include "_includes/_foot.html" %}
   </body>
 

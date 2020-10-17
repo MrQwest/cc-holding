@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Getting started with 11ty</title>
     <link rel="stylesheet" href="https://use.typekit.net/phz3fce.css">
 <link rel="stylesheet" href="/assets/css/style.css">
@@ -13,6 +14,15 @@
     <img class="cc-logo" src="/assets/images/cc-logo.png">
   </header>
 
+
+    <h1>Getting started with 11ty</h1>
+    <section class="post__date">
+      <div class="post__date--created">
+        Posted: <span>Wed Oct 14 2020</span>
+      </div>
+
+      
+    </section>
 
 
     <h1>Starting 11ty</h1>
@@ -59,11 +69,16 @@
 <p><code>--- layout: _main.njk title: CroydonCreativ.es ---</code></p>
 <p>The @layout@ tag tells 11ty which layout to use, in this instance, it’s 'main.njk' and the 'title' tag is the title of the document. This replaces the 'Getting started with 11ty' tag we include as part of the layout.</p>
 <p>After this 'front matter', we continue to write our content in Markdown.</p>
+<h2>Step 6 Build</h2>
+<p>Finally, let's get 11ty running. In the command line, we'll type</p>
+<p><code>$ npx @11ty/eleventy --serve</code></p>
+<p>This fires up eleventy and a local server, allowing you to hit <code>localhost:8080</code> in your browser to see the site. If you've followed along so far, when you visit localhost:8080, you should see the index.md file you created in step 5.</p>
+<p>You may also notice that now, whenever you create, modify or save a file, the 11ty server will rebuild your site, storing the static files within a folder called <code>_site</code>. You can upload all of this to your live site and it'll work like a normal <code>html</code> website.</p>
 <h2>Fin</h2>
 <p>This is the story so far. Next step is to get some includes working so that we can build out a header &amp; footer. And then it’s adding some design flair in.</p>
 <p>That’s the fun bit :)</p>
 
-    
+
       <footer>CroydonCreativ.es 2011-2020</footer>
 
   </body>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4 - Losing track of days</title>
+    <link rel="stylesheet" href="https://use.typekit.net/phz3fce.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+
+
+</head>
+<body>
+  <header>
+    <img class="cc-logo" src="/assets/images/cc-logo.png">
+  </header>
+
+
+    <h1>Day 4 - Losing track of days</h1>
+    <section class="post__date">
+      <div class="post__date--created">
+        Posted: <span>Sat Oct 17 2020</span>
+      </div>
+
+      
+        <div class="post__date--modified">
+          Updated: <span>Mon, 19 Oct 2020</span>
+        </div>
+      
+    </section>
+
+
+    <p>I'm thoroughly enjoying the build of the <strong>CroydonCreativ.es</strong> site using 11ty. It's great to get back into the swing of code and design. A gentle creative outlet and hobby.</p>
+<p>We're obviously on day 4 now and we've covered some fun stuff so far and I'm aware of also got some additional features and function that I want to roll in so there's going to be a fair amount of articles to come.</p>
+<p>I realise 11ty isn't a blogging system in the normal sense but it can be a blog. I wanted to roll some dates and date tracking into each piece of content to not only have a 'posted' date but also a 'modified' date to.</p>
+<p>I'm not beating around the bush here. I've not coded in anger or done any serious front-end code for a good while now and what I remember <em>may not</em> be the right way to do things <em>now</em>.</p>
+<h2>A note</h2>
+<p>I realise the proper way to do this would be to learn and research the current modern ways of doing <em>anything</em> in front end development and <em>then</em> writing about it but I find that a trigger for my procrastination and probably why I've shyed away from front-end for a number of years now. Not knowing <em>modern techniques</em> has been a barrier for me.</p>
+<p><strong>So</strong> the idea is to code how I used to do things and write about it and then <em>modify</em> the articles when I've learnt how to better prepare and write the code.</p>
+<p>Take yesterdays <code>media query</code> post. This was primarily based on my <code>media query</code> knowledge from 6 years ago. I noticed that <code>media queries level 4</code> is now the standard, and that brings an array of new features with it. What I wrote about yesterday may not be the best &amp; most modern way to code media queries and I will update or <em>modify</em> the post when I'm learnt new tricks!</p>
+<h2>Show me the date.</h2>
+<p>First, let's set the <em>Posted date</em>. The 11ty docs have a great primer on <a href="%22https://www.11ty.dev/docs/dates/%22">content dates</a> and it all seems fairly straight forward. It's a two part process. The first being where we add the date to our markdown files and the second part, displaying that in our templates.</p>
+<h3>Part 1 - Set the date</h3>
+<p>I mentioned the <code>front matter</code> on 11ty templates a few days ago. Here is where we add our dates.</p>
+<p>This is entered in yyyy-mm-dd format so today's date will be entered as</p>
+<p><code>--- date: 2020-10-17 ---</code></p>
+<h3>Part 2 - Show the dates</h3>
+<p>Now that we've got the date set in our content, let's display that within our template.</p>
+<p>I'll jump into my <code>_main.njk</code> file and use the <code>Sat Oct 17 2020 01:00:00 GMT+0100 (British Summer Time)</code> tag to display my date.</p>
+<p><code>Sat Oct 17 2020 01:00:00 GMT+0100 (British Summer Time)</code></p>
+<p>But this gives me far too much information. I don't want to know times or even time zones so we'll take the nunjucks tag and append it with a <code>JS</code> method <code>toUTCSring()</code> so that our tag will now look like ``</p>
+<p><code>Sat, 17 Oct 2020 00:00:00 GMT</code></p>
+<p>This gives us a neater time display but still keeps the time which we don't want.</p>
+<p>If we change that <code>JS</code> method to <code>.toDateString()</code>, it reduces the output again</p>
+<p><code>Sat Oct 17 2020</code></p>
+<p>It could still do with a little formatting though but I think that requires some additional JS tomfoolery which I'll save for another day.</p>
+<p>So my <code>_main.njk</code> file now has this for dates:</p>
+<p><code>&lt;div class=&quot;post__date--created&quot;&gt;</code>
+<code>Posted: &lt;span&gt;function toDateString() { [native code] }&lt;/span&gt;</code>
+<code>&lt;/div&gt;</code></p>
+<p>I've wrapped the date section in a div so I can style it and then wrapped the nunjucks tag in a span so I can style differently if I wanted to later.</p>
+<h2>- Now for the modified bit.</h2>
+<p>I had hoped that 11ty would be able to pick up the <code>last modified</code> date from the markdown file and use that as the modified date during the build process but that's not been coded yet. Hope it comes soon!</p>
+<p>So a workaround is to add an <code>update</code> field to the <code>front matter</code> portion of each piece of content <em>when</em> it gets updated and manually enter the date it's been updated. It's not ideal but it works.</p>
+<p><code>---</code> \n
+<code>date: 2020-10-17</code>\n
+<code>update: Mon, 19 Oct 2020</code>\n
+<code>---</code></p>
+<p>and then to display this on our page, within our <code>_main.njk</code> template file, we can add <code>Mon, 19 Oct 2020</code> and it'll reflect the date we've added in our <code>front matter</code>.</p>
+<p>We can then use nunjucks logical templating tags to display this date <em>if</em> <code>Mon, 19 Oct 2020</code> exists</p>
+<p><code>    Updated: Mon, 19 Oct 2020</code></p>
+<h2>Conclusion</h2>
+<p>Again, it'd be sweet if this was all automatic but it's not. And really, I could just add a little 'update' paragraph at the top of any piece of content I edit but it just makes things feel a little cleaner if all the meta data is kept in one place like the <code>front matter</code>.</p>
+
+
+      <footer>CroydonCreativ.es 2011-2020</footer>
+
+  </body>
+
+</html>
