@@ -1,3 +1,10 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   background-color: #011327;
   color:#eee;
@@ -19,12 +26,108 @@ h1 {
 
 }
 
+h2 {
+  color: #ffce22;
+  font-family: adelle;
+  font-weight 500;
+  text-align: center;
+  margin-top:4rem;
+  margin-bottom:2rem
+}
+
 p {
   font-size: 0.9rem;
 }
 
 p strong {
   color: rgba(255,255,255,.8);
+}
+
+a {
+  color: #ffce22;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #9191E9;
+  text-decoration: underline;
+}
+
+pre, code {
+  color: #9191E9;
+}
+
+input#mc-embedded-subscribe {
+    border-radius: 2rem;
+    border: .2rem solid #ffce22;
+    padding: .7rem 2rem;
+    color: #eee;
+    background: transparent;
+    margin: 1rem auto;
+    display: block;
+}
+
+fieldset {
+    border: 0;
+    padding: 0;
+}
+
+.mc-field-group {
+    padding: 0.4rem 0;
+}
+
+.mc-field-group input {
+    display: block;
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 0.3rem;
+    border: 0;
+    background-color: rgba(255,255,255,.4);
+    color: #111;
+    margin-bottom: 1rem;
+}
+
+.mc-field-group label {
+    font-weight: normal;
+    font-size: 0.8rem;
+    padding-left: 0.6rem;
+}
+
+.mc-field-group input:hover {
+    background-color: rgba(255,255,255,.9);
+}
+
+.indicates-required, .asterisk {
+    color: indianred;
+    font-size:.7rem;
+}
+input#mc-embedded-subscribe:hover {
+    transition: all 0.15s ease-in-out;
+    border-color: #efefef;
+    color: #ffce22;
+    background-color: rgba(255,255,255,.05);
+    cursor: pointer;
+
+}
+
+#mce-responses .response {
+    font-size: .8rem;
+    /* background-color: #efefef; */
+    /* border-radius: .3rem; */
+    /* padding: 0.6rem 0.8rem; */
+    /* color: #111; */
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+}
+
+div#mc_embed_signup_scroll {
+    padding-top: 2rem;
+}
+
+.mce_inline_error {
+    border-radius: .3rem;
+    background-color: indianred!important;
 }
 
 .center {
@@ -56,6 +159,13 @@ section.post__date {
     color: rgba(255,255,255,.8);
     text-decoration: underline;
 }
+
+@media (max-width: 350px) {
+  h1 {
+    font-size: 1rem;
+  }
+}
+
 
 @media (max-width: 550px) {
   body {

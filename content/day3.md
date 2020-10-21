@@ -63,3 +63,13 @@ So now I want to add the Media Query below it to adjust the `max-width` of my se
 This now allows our content to remain the same but the containers dimensions of the content blocks change and adapt according to the screen size.
 
 I've gone for a 90% width here to give the content a bit of breathing room from the edge of the screen.
+
+## Conclusion
+
+I'll continue adding in some other media queries as I go but this will be the template I use.
+
+The sites slowly coming together and I'm loving the creative process, the code and the _feels_ I get when creating something for other people to use.
+
+Why did I stop?
+
+Next up, I want to add some dates to these posts so I can keep up to date.
